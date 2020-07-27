@@ -72,7 +72,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void run() {
                 inference = new MNNInference();
-                inference.init(getApplicationContext());
+                //动态申请获取访问 读写磁盘的权限
+                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
+                } else {
+                    inference.init(getApplicationContext());
+                }
+
+
             }
         }).start();
 

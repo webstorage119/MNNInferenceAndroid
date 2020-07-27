@@ -62,6 +62,7 @@ std::vector<Result> MNNAndroidRecongize::recongize(cv::Mat &img) {
     int image_w = img.cols;
     cv::Mat image;
     cv::resize(img, image, cv::Size(resize_w, resize_h), cv::INTER_LINEAR);
+
     mnn_interpreter->resizeTensor(input_tensor, {1, 3, resize_w, resize_h});
     std::shared_ptr<MNN::CV::ImageProcess> pretreat(
             MNN::CV::ImageProcess::create(MNN::CV::BGR, MNN::CV::RGB, mean_vals, 3,

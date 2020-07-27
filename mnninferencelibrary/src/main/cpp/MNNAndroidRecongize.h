@@ -18,6 +18,7 @@
 #include <cmath>
 #include <algorithm>
 #include "Utils.h"
+#include <iostream>
 
 class MNNAndroidRecongize {
 public:
@@ -41,8 +42,8 @@ private:
     int resize_w = 224;
     int resize_h = 224;
     float score_threshold = 0.7;
-    const float mean_vals[3] = {123.675, 116.28, 103.53};
-    const float norm_vals[3] = {1.0/128, 1.0/128, 1.0/128};
+    const float mean_vals[3] = {123.675, 116.28, 103.53};//均值
+    const float norm_vals[3] = {1.0/58.395, 1.0/57.12, 1.0/57.375};//标准差的导数
 
 
 
