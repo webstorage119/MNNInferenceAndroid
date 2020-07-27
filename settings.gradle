@@ -1,0 +1,4 @@
+include ':mnninferencelibrary'
+include ':mnninferencelibrary'
+include ':app'
+rootProject.name = "MNNInferenceAndroid"
